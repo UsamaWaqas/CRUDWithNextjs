@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { Book } from 'src/data/Book.dto';
 
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 @Injectable()
 export class BookService {
   public books: Book[] = [];
 
   addBookservice(book: Book): string {
-    book.id = uuidv4();
+    // book.id = uuidv4();
     this.books.push(book);
     return 'books has been succesfully added';
   }
@@ -22,7 +22,7 @@ export class BookService {
     return 'book is succesfully updaed';
   }
 
-  DeleteService(bookId: string): string {
+  DeleteService(bookId: number): string {
     this.books.filter((book) => {
       return book.id !== bookId;
     });
