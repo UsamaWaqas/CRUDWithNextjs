@@ -7,7 +7,9 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { BookService } from 'src/Services/Book.service';
 import { Book } from 'src/data/Book.dto';
 @Controller('/book')
@@ -29,5 +31,11 @@ export class BookController {
   @Post('/add')
   addbook(@Body() book: Book): string {
     return this.BookService.addBookservice(book);
+  }
+
+  @Get('/hello')
+  @UseGuards(AuthGuard('local'))
+  hello(): string {
+    return 'this is private data';
   }
 }

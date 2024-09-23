@@ -9,4 +9,8 @@ export class Book {
   Author: string;
   @IsString()
   Published: string;
+  @IsString()
+  password: string;
+  @IsString()
+  UserName: string;
 }
